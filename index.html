@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusat Pembelajaran Interaktif - Cikgu Shahrizan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .page { display: none; width: 100%; height: 100vh; }
+        .page.active { display: flex; }
+        .tool-container { width: 100%; height: 100%; display: flex; flex-direction: column; }
+        .hub-card { transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
+        .hub-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        
+        @keyframes fadeIn {
+          from { opacity: 0; transform: scale(0.98); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        .modal { animation: fadeIn 0.3s ease-out; }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Laman Utama (Hub) -->
+    <div id="hub-page" class="page active flex-col items-center justify-center min-h-screen p-8">
+        <h1 class="text-5xl font-black text-center text-blue-600">Pusat Pembelajaran Cikgu Shahrizan</h1>
+        <p class="text-center text-gray-600 mt-4 text-xl">Sila pilih kelas anda.</p>
+        
+        <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-8 mt-12 w-full max-w-7xl">
+            <div data-target="year7-page" class="hub-card bg-white p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
+                <div class="text-6xl mb-4">🎓</div>
+                <h2 class="text-3xl font-bold text-gray-800">Year 7</h2>
+                <p class="text-gray-500">(Advanced)</p>
+            </div>
+            <div data-target="year8-page" class="hub-card bg-white p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
+                <div class="text-6xl mb-4">🌱</div>
+                <h2 class="text-3xl font-bold text-gray-800">Year 8</h2>
+                <p class="text-gray-500">(Foundation)</p>
+            </div>
+            <div data-target="year9-page" class="hub-card bg-white p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
+                <div class="text-6xl mb-4">🌿</div>
+                <h2 class="text-3xl font-bold text-gray-800">Year 9</h2>
+                <p class="text-gray-500">(Foundation)</p>
+            </div>
+            <div data-target="year10-page" class="hub-card bg-white p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
+                <div class="text-6xl mb-4">📚</div>
+                <h2 class="text-3xl font-bold text-gray-800">Year 10</h2>
+                <p class="text-gray-500">(First Language)</p>
+            </div>
+            <div data-target="year11-page" class="hub-card bg-white p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
+                <div class="text-6xl mb-4">✍️</div>
+                <h2 class="text-3xl font-bold text-gray-800">Year 11</h2>
+                <p class="text-gray-500">(First Language)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Halaman Indeks -->
+    <div id="year7-page" class="page flex-col items-center justify-center min-h-screen p-8">
+        <h2 class="text-4xl font-bold text-gray-800">Indeks Pelajaran: Year 7 (Advanced)</h2>
+        <div class="mt-8 w-full max-w-md space-y-4">
+            <button data-target="kata-nama-slides-page" class="w-full text-left p-4 bg-red-50 hover:bg-red-100 rounded-lg font-semibold text-red-800 text-xl">1. Slaid: Fokus Kata Nama</button>
+            <button data-target="pengenalan-diri-page" class="w-full text-left p-4 bg-blue-50 hover:bg-blue-100 rounded-lg font-semibold text-blue-800 text-xl">2. Slaid: Pengenalan Diri</button>
+            <button data-target="karangan-hari-keluarga-page" class="w-full text-left p-4 bg-green-50 hover:bg-green-100 rounded-lg font-semibold text-green-800 text-xl">3. Slaid: Menulis Karangan</button>
+        </div>
+        <button data-target="hub-page" class="mt-8 bg-gray-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-600">Kembali ke Menu Utama</button>
+    </div>
+    <div id="year8-page" class="page flex-col items-center justify-center min-h-screen p-8">
+        <h2 class="text-4xl font-bold text-gray-800">Indeks Pelajaran: Year 8 (Foundation)</h2>
+        <div class="mt-8 w-full max-w-2xl grid grid-cols-1 md:grid-cols-2 gap-4">
+            <button data-target="cuaca-slides-page" class="w-full text-left p-4 bg-blue-50 hover:bg-blue-100 rounded-lg font-semibold text-blue-800 text-xl">1. Pelajaran Slaid: Cuaca</button>
+            <button data-target="ukuran-quiz-page" class="w-full text-left p-4 bg-amber-50 hover:bg-amber-100 rounded-lg font-semibold text-amber-800 text-xl">2. Kuiz Individu: Ukuran & Bahan</button>
+            <button data-target="multiplayer-quiz-page" class="w-full text-left p-4 bg-purple-50 hover:bg-purple-100 rounded-lg font-semibold text-purple-800 text-xl">3. Permainan Kuiz Multiplayer</button>
+            <button data-target="whiteboard-page" class="w-full text-left p-4 bg-green-50 hover:bg-green-100 rounded-lg font-semibold text-green-800 text-xl">4. Papan Perbincangan</button>
+        </div>
+        <button data-target="hub-page" class="mt-8 bg-gray-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-600">Kembali ke Menu Utama</button>
+    </div>
+     <div id="year9-page" class="page flex-col items-center justify-center min-h-screen p-8">
+        <h2 class="text-4xl font-bold text-gray-800">Indeks Pelajaran: Year 9 (Foundation)</h2>
+        <div class="mt-8 w-full max-w-2xl grid grid-cols-1 md:grid-cols-2 gap-4">
+            <button data-target="cuaca-slides-page" class="w-full text-left p-4 bg-blue-50 hover:bg-blue-100 rounded-lg font-semibold text-blue-800 text-xl">1. Pelajaran Slaid: Cuaca</button>
+            <button data-target="ukuran-quiz-page" class="w-full text-left p-4 bg-amber-50 hover:bg-amber-100 rounded-lg font-semibold text-amber-800 text-xl">2. Kuiz Individu: Ukuran & Bahan</button>
+            <button data-target="multiplayer-quiz-page" class="w-full text-left p-4 bg-purple-50 hover:bg-purple-100 rounded-lg font-semibold text-purple-800 text-xl">3. Permainan Kuiz Multiplayer</button>
+            <button data-target="whiteboard-page" class="w-full text-left p-4 bg-green-50 hover:bg-green-100 rounded-lg font-semibold text-green-800 text-xl">4. Papan Perbincangan</button>
+        </div>
+        <button data-target="hub-page" class="mt-8 bg-gray-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-600">Kembali ke Menu Utama</button>
+    </div>
+    <div id="year10-page" class="page flex-col items-center justify-center min-h-screen p-8">
+        <h2 class="text-4xl font-bold text-gray-800">Indeks Pelajaran: Year 10 (First Language)</h2>
+        <p class="text-gray-500 mt-4 italic">Bahan akan datang...</p>
+        <button data-target="hub-page" class="mt-8 bg-gray-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-600">Kembali ke Menu Utama</button>
+    </div>
+    <div id="year11-page" class="page flex-col items-center justify-center min-h-screen p-8">
+        <h2 class="text-4xl font-bold text-gray-800">Indeks Pelajaran: Year 11 (First Language)</h2>
+        <p class="text-gray-500 mt-4 italic">Bahan akan datang...</p>
+        <button data-target="hub-page" class="mt-8 bg-gray-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-600">Kembali ke Menu Utama</button>
+    </div>
+
+    <!-- Container untuk alatan interaktif -->
+    <div id="kata-nama-slides-page" class="page"></div>
+    <div id="pengenalan-diri-page" class="page"></div>
+    <div id="karangan-hari-keluarga-page" class="page"></div>
+    <div id="cuaca-slides-page" class="page"></div>
+    <div id="ukuran-quiz-page" class="page"></div>
+    <div id="multiplayer-quiz-page" class="page"></div>
+    <div id="whiteboard-page" class="page"></div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, onSnapshot, collection, addDoc, serverTimestamp, updateDoc, deleteDoc, getDocs, writeBatch, query, where, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        
+        const pages = document.querySelectorAll('.page');
+        window.showPage = (pageId) => {
+            pages.forEach(page => page.classList.toggle('active', page.id === pageId));
+            if (window.initTools && window.initTools[pageId] && !document.getElementById(pageId).dataset.initialized) {
+                window.initTools[pageId]();
+                document.getElementById(pageId).dataset.initialized = 'true';
+            }
+        };
+
+        document.body.addEventListener('click', (e) => {
+            const target = e.target.closest('[data-target]');
+            if (target) {
+                e.preventDefault();
+                showPage(target.dataset.target);
+            }
+        });
+        
+        window.initTools = {};
+        
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : { apiKey: "DEMO-KEY", authDomain: "DEMO-DOMAIN", projectId: "DEMO-PROJECT" };
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'interactive-hub-app';
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                const token = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+                if (token) signInWithCustomToken(auth, token).catch(err => signInAnonymously(auth));
+                else signInAnonymously(auth);
+            }
+        });
+
+        // --- INJECT TOOLS HERE ---
+        
+        // Tool 1: Slaid Kata Nama (Year 7)
+        window.initTools['kata-nama-slides-page'] = () => {
+            const container = document.getElementById('kata-nama-slides-page');
+            container.innerHTML = `<div class="tool-container"><div class="flex-grow relative flex items-center justify-center bg-gray-100 p-4" id="kn-content"></div><div class="flex-shrink-0 bg-gray-100 p-2 text-center"><button data-target="year7-page" class="bg-gray-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-600">Kembali ke Indeks</button></div></div>`;
+            const toolContent = container.querySelector('#kn-content');
+            toolContent.innerHTML = `
+                <style>
+                    #kn-container { font-family: 'Inter', sans-serif; background-color: #f0f4f8; color: #333; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+                    #kn-container .slideshow-container { position: relative; background: #ffffff; width: 100%; max-width: 1100px; aspect-ratio: 16 / 9; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; }
+                    #kn-container .slide { display: none; padding: 4% 6%; box-sizing: border-box; width: 100%; height: 100%; flex-direction: column; justify-content: center; position: absolute; left: 0; top: 0; }
+                    #kn-container .slide.active-slide { display: flex; }
+                    #kn-container .fade { animation-name: kn-fade; animation-duration: 0.8s; }
+                    @keyframes kn-fade { from {opacity: .4} to {opacity: 1} }
+                    #kn-container .title-slide { text-align: center; background: linear-gradient(135deg, #007BFF, #0056B3); color: white; }
+                    #kn-container h1 { font-size: 3.4vw; color: #0056B3; }
+                    #kn-container .title-slide h1 { color: white; border: none; }
+                    #kn-container h2 { font-size: 2.8vw; } #kn-container h3 { font-size: 1.9vw; }
+                    #kn-container p, #kn-container li { font-size: 1.5vw; line-height: 1.7; }
+                    #kn-container .prev, #kn-container .next { cursor: pointer; position: absolute; top: 50%; width: auto; padding: 18px; margin-top: -30px; color: white; font-weight: bold; font-size: 22px; transition: 0.3s; border-radius: 0 5px 5px 0; user-select: none; background-color: rgba(0, 0, 0, 0.4); z-index: 10; }
+                    #kn-container .next { right: 0; border-radius: 5px 0 0 5px; }
+                    #kn-container .quiz-option { cursor: pointer; display: block; background-color: #f8f9fa; border: 2px solid #dee2e6; padding: 15px; margin-top: 10px; border-radius: 8px; transition: 0.2s; }
+                    #kn-container .quiz-option:hover { background-color: #e9ecef; border-color: #007BFF; }
+                    #kn-container .quiz-feedback { margin-top: 20px; font-weight: bold; font-size: 1.5rem; display: none; }
+                    #kn-container .highlight { font-weight: bold; color: #dc3545; }
+                    #kn-container .note { font-style: italic; color: #6c757d; font-size: 1.2rem; margin-top: 15px; }
+                </style>
+                <div id="kn-container">
+                    <div class="slideshow-container">
+                        <div class="slide fade title-slide"><h1>FOKUS ASAS: KATA NAMA</h1><p style="font-size: 1.8vw;">Sesi Khas untuk Kelas Lanjutan Bahasa Melayu<br>Tingkatan 1</p></div>
+                        <div class="slide fade"><h2>Aktiviti Permulaan</h2><h3>Cabaran 2 Minit:</h3><ol><li>Benda yang ada di dalam bilik darjah.</li><li>Orang yang anda jumpa di sekolah.</li></ol><p class="note">Semua perkataan ini ialah KATA NAMA!</p></div>
+                        <div class="slide fade"><h2>Objektif Pembelajaran</h2><ul><li><strong>Mengingat semula</strong> definisi Kata Nama.</li><li><strong>Membezakan</strong> dengan jelas antara Kata Nama Am dan Kata Nama Khas.</li><li><strong>Mengenal pasti</strong> fungsi asas Kata Nama dalam ayat.</li></ul></div>
+                        <div class="slide fade"><h2>Apa itu Kata Nama?</h2><p>Kata yang merujuk kepada <strong>manusia, haiwan, benda, dan tempat</strong> secara umum atau khusus.</p><p>Ia adalah kata yang memberi <span class="highlight">nama</span> kepada sesuatu di sekeliling kita.</p></div>
+                        <div class="slide fade"><h2>Dua Jenis Utama Kata Nama</h2><ul><li><h3>1. Kata Nama Am</h3></li><li><h3>2. Kata Nama Khas</h3></li></ul><p class="note">Kedua-duanya penting untuk membina ayat yang jelas.</p></div>
+                        <div class="slide fade"><h2>Mendalami: Kata Nama Am</h2><p>Nama bagi sesuatu secara <span class="highlight">umum</span>. Ejaannya bermula dengan <span class="highlight">huruf kecil</span>.</p><ul><li><strong>Manusia:</strong> <code>guru</code>, <code>polis</code></li><li><strong>Benda:</strong> <code>buku</code>, <code>kerusi</code></li></ul></div>
+                        <div class="slide fade"><h2>Mendalami: Kata Nama Khas</h2><p>Nama bagi sesuatu secara <span class="highlight">khusus</span>. Ejaannya <span class="highlight">wajib</span> bermula dengan <span class="highlight">huruf besar</span>.</p><ul><li><strong>Manusia:</strong> <code>Cikgu Aisyah</code></li><li><strong>Tempat:</strong> <code>Johor Bahru</code></li></ul></div>
+                        <div class="slide fade"><h2>Perbandingan Utama</h2><table class="w-full text-left"><thead><tr><th>Ciri</th><th>Kata Nama Am</th><th>Kata Nama Khas</th></tr></thead><tbody><tr><td><strong>Definisi</strong></td><td>Umum</td><td>Khusus</td></tr><tr><td><strong>Ejaan</strong></td><td>Huruf kecil</td><td>Huruf besar</td></tr><tr><td><strong>Contoh</strong></td><td><code>kereta</code></td><td><code>Proton X70</code></td></tr></tbody></table></div>
+                        <div class="slide fade"><h2>Kuiz 1: Kenal Pasti</h2><p>Perkataan <code>doktor</code> ialah:</p><div id="kn-quiz1"><span class="quiz-option" data-answer="betul">A. Kata Nama Am</span><span class="quiz-option" data-answer="salah">B. Kata Nama Khas</span></div><p id="kn-feedback1" class="quiz-feedback"></p></div>
+                        <div class="slide fade"><h2>Kuiz 2: Ejaan</h2><p>Antara berikut, yang manakah ejaan yang betul?</p><div id="kn-quiz2"><span class="quiz-option" data-answer="betul">A. Kucing itu bernama Si Comel.</span><span class="quiz-option" data-answer="salah">B. Kucing itu bernama Si comel.</span></div><p id="kn-feedback2" class="quiz-feedback"></p></div>
+                        <div class="slide fade"><h2>Kuiz 3: Kenal Pasti</h2><p>Perkataan <code>Kuala Lumpur</code> ialah:</p><div id="kn-quiz3"><span class="quiz-option" data-answer="salah">A. Kata Nama Am</span><span class="quiz-option" data-answer="betul">B. Kata Nama Khas</span></div><p id="kn-feedback3" class="quiz-feedback"></p></div>
+                        <div class="slide fade"><h2>Fungsi 1: Sebagai Subjek</h2><p>Contoh: <strong><code>Pelajar itu</code></strong> sedang membaca buku.</p></div>
+                        <div class="slide fade"><h2>Fungsi 2: Sebagai Objek</h2><p>Contoh: Puan Aina membeli <strong><code>sayur-sayuran</code></strong>.</p></div>
+                        <div class="slide fade"><h2>Soalan Pemahaman</h2><ol><li>Terangkan perbezaan antara <code>sekolah</code> dan <code>Sekolah Kebangsaan Taman Cempaka</code>.</li><li>Bina satu ayat di mana kata nama berfungsi sebagai subjek.</li></ol></div>
+                        <div class="slide fade"><h2>Aktiviti Kreatif</h2><p>Bina satu perenggan pendek mengenai sekolah anda. Gunakan 2 Kata Nama Am & 2 Kata Nama Khas.</p></div>
+                        <div class="slide fade"><h2>Rumusan</h2><ul><li>Kata Nama Am: <strong>umum</strong> (huruf kecil).</li><li>Kata Nama Khas: <strong>khusus</strong> (huruf besar).</li></ul></div>
+                        <div class="slide fade" style="text-align:center;"><h2>Soalan?</h2><p style="font-size: 2.5rem; margin-top: 50px;">Terima Kasih</p></div>
+                        <a class="prev">&#10094;</a><a class="next">&#10095;</a><div class="slide-number absolute bottom-4 left-4 bg-white/50 px-2 py-1 rounded"></div>
+                    </div>
+                </div>`;
+            
+            let kn_slideIndex = 1;
+            const kn_container = toolContent.querySelector('#kn-container');
+            const kn_slides = kn_container.querySelectorAll(".slide");
+            const kn_slideNumberText = kn_container.querySelector(".slide-number");
+            
+            const kn_showSlides = (n) => {
+                if (n > kn_slides.length) { kn_slideIndex = 1; }
+                if (n < 1) { kn_slideIndex = kn_slides.length; }
+                kn_slides.forEach(s => s.classList.remove('active-slide'));
+                kn_slides[kn_slideIndex - 1].classList.add('active-slide');
+                kn_slideNumberText.innerHTML = `${kn_slideIndex} / ${kn_slides.length}`;
+            };
+            
+            const kn_checkQuiz = (quizNum, answer) => {
+                const feedback = kn_container.querySelector('#kn-feedback' + quizNum);
+                const optionsContainer = kn_container.querySelector('#kn-quiz' + quizNum);
+                optionsContainer.querySelectorAll('.quiz-option').forEach(opt => opt.style.pointerEvents = 'none');
+                if(answer === 'betul') {
+                    feedback.textContent = "Tahniah, jawapan anda TEPAT!";
+                    feedback.style.color = 'green';
+                } else {
+                    feedback.textContent = "Maaf, jawapan anda salah.";
+                    feedback.style.color = 'red';
+                }
+                feedback.style.display = 'block';
+            };
+            
+            kn_container.addEventListener('click', (e) => {
+                if(e.target.matches('.prev')) kn_showSlides(kn_slideIndex -= 1);
+                if(e.target.matches('.next')) kn_showSlides(kn_slideIndex += 1);
+                if(e.target.matches('.quiz-option')){
+                    const quizNum = e.target.parentElement.id.replace('kn-quiz','');
+                    const answer = e.target.dataset.answer;
+                    kn_checkQuiz(quizNum, answer);
+                }
+            });
+            
+            kn_showSlides(kn_slideIndex);
+        };
+
+        // Tool 2: Slaid Pengenalan Diri (Year 7)
+        window.initTools['pengenalan-diri-page'] = () => {
+            const container = document.getElementById('pengenalan-diri-page');
+            container.innerHTML = `<div class="tool-container"><div class="flex-grow relative flex items-center justify-center bg-gray-900" id="pd-content"></div><div class="flex-shrink-0 bg-gray-900 p-2 text-center"><button data-target="year7-page" class="bg-gray-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-600">Kembali ke Indeks</button></div></div>`;
+            const toolContent = container.querySelector('#pd-content');
+            toolContent.innerHTML = `
+                <style>
+                    #pd-container { font-family: 'Poppins', sans-serif; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+                    #pd-container .presentation-container { width: 95vw; max-width: 1440px; aspect-ratio: 16 / 9; display: flex; flex-direction: column; background-color: white; overflow: hidden; border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+                    #pd-container .slide-content { animation: fadeIn 0.7s ease-in-out; position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+                    #pd-container .objective-badge { position: absolute; top: 1.5rem; left: 1.5rem; padding: 4px 12px; border-radius: 12px; font-size: 1rem; font-weight: 600; color: white; z-index: 10; }
+                </style>
+                <div id="pd-container">
+                    <div class="presentation-container">
+                        <div id="presentation-view" class="flex-grow p-8 md:p-16 flex items-center justify-center overflow-y-auto transition-colors duration-500 relative"></div>
+                        <div class="bg-gray-100 border-t-2 border-gray-200 px-8 py-4 flex items-center justify-between flex-shrink-0">
+                            <button id="pd-prev-btn" class="px-6 py-3 bg-gray-300 text-gray-800 text-lg font-semibold rounded-lg shadow-md hover:bg-gray-400 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Sebelum</button>
+                            <div id="pd-slide-counter" class="text-lg font-bold text-gray-600"></div>
+                            <button id="pd-next-btn" class="px-6 py-3 bg-indigo-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Seterusnya</button>
+                        </div>
+                    </div>
+                </div>`;
+            
+            const pd_slides = [
+                { title: "Topik Utama", content: `<div class="w-full text-center"><h2 class="text-6xl font-bold text-gray-800 mb-4">Pengenalan Diri dan Ucapan</h2><p class="text-3xl text-gray-600">Jom belajar cara memberi salam dan bercerita tentang diri!</p><div class="mt-8 bg-indigo-100 p-4 rounded-lg max-w-2xl mx-auto"><h3 class="text-2xl font-bold text-indigo-800">Aktiviti Do Now 🧠</h3><p class="text-xl text-indigo-700 mt-2">Fikirkan <strong>satu perkataan</strong> yang paling sesuai untuk menggambarkan diri anda. Kenapa?</p></div></div>` },
+                { title: "Objektif Pembelajaran", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800 mb-8">Apa Kita Akan Belajar?</h2><div class="text-left max-w-4xl mx-auto text-2xl space-y-3"><div><span class="bg-blue-500 text-white font-semibold rounded-lg px-3 py-1 mr-2">🗣️ Bertutur</span> Bercerita tentang diri, impian, dan hobi dengan lebih terperinci.</div><div><span class="bg-green-500 text-white font-semibold rounded-lg px-3 py-1 mr-2">✍️ Menulis</span> Menulis perenggan yang menarik tentang diri sendiri dan orang lain.</div><div><span class="bg-yellow-500 text-white font-semibold rounded-lg px-3 py-1 mr-2">📘 Kosa Kata</span> Menggunakan perkataan baru untuk menghuraikan sifat dan minat.</div></div></div>`},
+                { title: "Ucapan Asas", objective: "Bertutur", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Jom Ucap Salam! 👋</h2><p class="mt-4 text-2xl text-gray-600 max-w-3xl mx-auto">Ucapan menunjukkan kita seorang yang berbudi bahasa.</p><div class="mt-6 grid grid-cols-2 gap-4 max-w-3xl mx-auto text-2xl"><div class="bg-blue-50 p-4 rounded-lg"><strong>Selamat pagi/petang.</strong></div><div class="bg-green-50 p-4 rounded-lg"><strong>Apa khabar?</strong></div><div class="bg-yellow-50 p-4 rounded-lg"><strong>Terima kasih.</strong></div><div class="bg-red-50 p-4 rounded-lg"><strong>Sama-sama.</strong></div></div></div>`},
+                { title: "Memperkenalkan Maklumat Diri", objective: "Bertutur", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Maklumat Diri Anda</h2><p class="mt-4 text-2xl text-gray-600 max-w-3xl mx-auto">Ini adalah maklumat asas tentang diri kita.</p><div class="mt-6 text-left bg-blue-50 p-6 rounded-lg max-w-2xl mx-auto text-2xl"><p>Contoh:</p><ul class="list-disc list-inside mt-2"><li>Nama saya <strong>Ahmad Zikri bin Ismail</strong>.</li><li>Umur saya <strong>13 tahun</strong>.</li><li>Saya berasal dari <strong>Ipoh, Perak</strong>.</li></ul></div></div>`},
+                { title: "Apakah Impian & Minat Kamu?", objective: "Kosa Kata", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Impian & Minat</h2><p class="mt-4 text-2xl text-gray-600 max-w-3xl mx-auto"><strong>Impian</strong> ialah cita-cita, manakala <strong>minat</strong> ialah kegemaran kita.</p><div class="mt-6 text-left bg-yellow-50 p-6 rounded-lg max-w-2xl mx-auto text-2xl"><p>Contoh:</p><ul class="list-disc list-inside mt-2"><li><strong>Impian</strong> saya adalah untuk menjadi seorang pereka permainan video.</li><li>Saya sangat <strong>berminat</strong> dalam subjek Reka Bentuk dan Teknologi.</li></ul></div></div>`},
+                { title: "Menghuraikan Sifat Diri", objective: "Kosa Kata", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Menghuraikan Sifat Diri</h2><p class="mt-4 text-2xl text-gray-600 max-w-3xl mx-auto">Gunakan perkataan yang sesuai untuk menggambarkan perwatakan.</p><div class="mt-6 text-left bg-purple-50 p-6 rounded-lg max-w-2xl mx-auto text-2xl"><p>Contoh:</p><ul class="list-disc list-inside mt-2"><li>Seorang yang <strong>kreatif</strong> dan suka mencuba benda baharu.</li><li>Dikenali sebagai seorang yang <strong>cermat</strong> dalam setiap tugasan.</li><li>Seorang yang <strong>mudah mesra</strong> dan suka berkawan.</li></ul></div></div>`},
+                { title: "Mari Kumpul Kosa Kata!", objective: "Kosa Kata", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Bank Perkataan Sifat Diri</h2><p class="mt-4 text-2xl text-gray-600">Pilih 3 perkataan yang menggambarkan diri anda!</p><div class="mt-6 grid grid-cols-3 gap-4 max-w-4xl mx-auto text-2xl"><div class="bg-gray-100 p-4 rounded-lg">Rajin</div><div class="bg-gray-100 p-4 rounded-lg">Kelakar</div><div class="bg-gray-100 p-4 rounded-lg">Baik hati</div><div class="bg-gray-100 p-4 rounded-lg">Pemalu</div><div class="bg-gray-100 p-4 rounded-lg">Berani</div><div class="bg-gray-100 p-4 rounded-lg">Setia kawan</div><div class="bg-gray-100 p-4 rounded-lg">Kreatif</div><div class="bg-gray-100 p-4 rounded-lg">Cermat</div><div class="bg-gray-100 p-4 rounded-lg">Bercita-cita tinggi</div></div></div>`},
+                { title: "Latihan Penulisan 1: Profil Diri", objective: "Menulis", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Latihan Penulisan 1: Profil Diri</h2><p class="mt-4 text-2xl text-gray-600 max-w-3xl mx-auto">Tulis sebuah perenggan (5-6 ayat) yang merangkumi <strong>maklumat diri, impian, dan sifat diri</strong> anda.</p><div class="mt-6 bg-green-100 p-4 rounded-lg text-2xl font-semibold">Gunakan perkataan baru yang telah kita pelajari.</div></div>`},
+                { title: "Contoh Profil Diri", objective: "Menulis", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Contoh Profil Diri 📝</h2><div class="mt-6 text-left bg-gray-100 p-8 rounded-lg max-w-3xl mx-auto text-2xl leading-relaxed"><p>Nama saya Aina. Saya berumur 13 tahun dan berasal dari Melaka. Impian saya adalah untuk menjadi seorang penulis novel. Saya seorang yang kreatif dan suka berimaginasi. Pada masa lapang, saya gemar membaca buku dan melakar watak-watak cerita saya sendiri.</p></div></div>`},
+                { title: "Aktiviti Pemahaman", objective: "Kosa Kata", content: `<div class="w-full"><h2 class="text-5xl font-bold text-gray-800 text-center mb-4">Aktiviti Pemahaman 🧐</h2><div class="text-left bg-gray-100 p-6 rounded-lg max-w-4xl mx-auto text-xl leading-relaxed"><p class="font-bold mb-2">Baca petikan di bawah dan jawab soalan.</p><p>Farid seorang yang sangat rajin. Impiannya adalah untuk menjadi seorang jurutera. Setiap petang, dia akan mengulang kaji pelajaran Matematik kerana itu adalah subjek kegemarannya. Walaupun dia seorang yang pendiam, Farid sentiasa membantu rakan-rakannya yang tidak faham.</p></div><div class="mt-4 text-left max-w-4xl mx-auto text-xl"><p><strong>1. Apakah impian Farid?</strong></p><p><strong>2. Apakah sifat baik yang ada pada Farid?</strong></p></div></div>`},
+                { title: "Siapakah Idola Kamu?", objective: "Bertutur", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Siapakah Idola Kamu? 🌟</h2><p class="mt-4 text-2xl text-gray-600 max-w-3xl mx-auto">Idola ialah seseorang yang kita kagumi dan menjadi sumber inspirasi.</p><div class="mt-6 bg-yellow-100 p-4 rounded-lg text-2xl font-semibold">Fikirkan seorang tokoh dan kenapa anda mengaguminya.</div></div>`},
+                { title: "Latihan Penulisan 2: Saya & Idola", objective: "Menulis", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Latihan Penulisan 2: Saya & Idola</h2><p class="mt-4 text-2xl text-gray-600 max-w-3xl mx-auto">Tulis satu perenggan yang membandingkan <strong>satu sifat baik</strong> anda dengan idola anda.</p><div class="mt-6 bg-indigo-100 p-4 rounded-lg text-xl"><p><strong>Contoh Mula:</strong> "Idola saya ialah [Nama Tokoh]. Beliau seorang yang sangat [Sifat]. Seperti beliau, saya juga..."</p></div></div>`},
+                { title: "Aktiviti Perbincangan Kumpulan", objective: "Bertutur", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Perbincangan Kumpulan 🗣️</h2><p class="mt-4 text-3xl text-gray-600 max-w-3xl mx-auto">Dalam kumpulan kecil, bincangkan:</p><p class="mt-4 text-3xl font-semibold text-indigo-700 italic">"Bagaimanakah hobi boleh membantu kita mencapai impian?"</p></div>`},
+                { title: "Jom Main Teka-Teki!", objective: "Kosa Kata", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Jom Main Teka-Teki!</h2><p class="mt-6 text-3xl text-gray-700 max-w-3xl mx-auto">Semakin banyak kita ambil, semakin banyak yang kita tinggalkan. Apakah ia?</p><button id="show-riddle-answer" class="mt-8 px-8 py-4 bg-yellow-400 text-gray-800 text-2xl font-bold rounded-lg shadow-md hover:bg-yellow-500">Tunjuk Jawapan</button><div id="riddle-answer" class="mt-6 text-3xl font-bold text-green-600 hidden">Jejak Langkah!</div></div>`},
+                { title: "Kuiz Pantas: Padankan!", objective: "Kosa Kata", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Kuiz Pantas: Padankan!</h2><div class="mt-8 grid grid-cols-2 gap-x-8 gap-y-4 max-w-3xl mx-auto text-2xl"><div class="text-right font-bold">Impian</div><div class="text-left">Aktiviti masa lapang</div><div class="text-right font-bold">Hobi</div><div class="text-left">Cita-cita</div><div class="text-right font-bold">Sifat Diri</div><div class="text-left">Perwatakan seseorang</div></div></div>`},
+                { title: "Aktiviti Lakonan", objective: "Bertutur", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Jom Berlakon! 🎭</h2><p class="mt-4 text-3xl text-gray-600 max-w-3xl mx-auto">Dalam pasangan, lakonkan situasi di mana anda bertemu dengan seorang rakan baharu buat kali pertama.</p><div class="mt-6 bg-blue-100 p-4 rounded-lg text-xl">Pastikan anda bertanya tentang nama, asal, dan hobi!</div></div>`},
+                { title: "Penulisan Kreatif", objective: "Menulis", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Penulisan Kreatif ✍️</h2><p class="mt-4 text-3xl text-gray-600 max-w-3xl mx-auto">Bayangkan anda seekor haiwan. Tulis satu perenggan pendek untuk memperkenalkan diri anda.</p><div class="mt-6 bg-green-100 p-4 rounded-lg text-xl">Contoh: "Nama saya Sang Kancil. Saya tinggal di dalam hutan. Hobi saya ialah..."</div></div>`},
+                { title: "Teka Siapa?", objective: "Bertutur", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Permainan: Teka Siapa?</h2><p class="mt-4 text-3xl text-gray-600 max-w-3xl mx-auto">Seorang murid akan memberikan 3 pembayang tentang dirinya (hobi, impian, sifat) dan murid lain akan meneka.</p></div>`},
+                { title: "Tugasan Lanjutan", objective: "Menulis", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Tugasan Lanjutan</h2><p class="mt-4 text-3xl text-gray-600 max-w-3xl mx-auto">Tulis satu perenggan tentang impian anda dan tiga langkah yang anda akan ambil untuk mencapainya.</p></div>`},
+                { title: "Kesimpulan", content: `<div class="w-full text-center"><h2 class="text-6xl font-bold text-gray-800">Refleksi Pembelajaran ✅</h2><p class="mt-6 text-3xl text-gray-600">Hari ini, kita telah belajar untuk:</p><ul class="mt-4 text-2xl list-disc list-inside max-w-2xl mx-auto"><li>Menghuraikan profil diri secara terperinci.</li><li>Menggunakan kosa kata baru untuk bercerita tentang diri.</li><li>Menganalisis dan menulis tentang diri dan orang lain.</li></ul><div class="mt-8 bg-blue-100 p-4 rounded-lg text-2xl font-semibold">Kerja Rumah: Siapkan Tugasan Lanjutan yang diberikan.</div></div>`}
+            ];
+
+            let pd_currentSlide = 0;
+            const pd_presentationView = toolContent.querySelector('#presentation-view');
+            const pd_prevBtn = toolContent.querySelector('#pd-prev-btn');
+            const pd_nextBtn = toolContent.querySelector('#pd-next-btn');
+            const pd_slideCounter = toolContent.querySelector('#pd-slide-counter');
+            
+            function pd_showSlide(index) {
+                const slide = pd_slides[index];
+                let objectiveHtml = '';
+                if (slide.objective) {
+                    let bgColor = 'bg-gray-400'; let icon = '⭐';
+                    if (slide.objective === 'Bertutur') { bgColor = 'bg-blue-500'; icon = '🗣️'; }
+                    if (slide.objective === 'Menulis') { bgColor = 'bg-green-500'; icon = '✍️'; }
+                    if (slide.objective === 'Kosa Kata') { bgColor = 'bg-yellow-500'; icon = '📘'; }
+                    objectiveHtml = `<div class="objective-badge ${bgColor}">${icon} ${slide.objective}</div>`;
+                }
+                pd_presentationView.innerHTML = `<div class="slide-content">${objectiveHtml}${slide.content}</div>`;
+                
+                if (slide.title === "Jom Main Teka-Teki!") {
+                    const btn = pd_presentationView.querySelector('#show-riddle-answer');
+                    const answer = pd_presentationView.querySelector('#riddle-answer');
+                    if(btn && answer) {
+                        btn.addEventListener('click', () => {
+                            btn.style.display = 'none';
+                            answer.classList.remove('hidden');
+                        });
+                    }
+                }
+                pd_slideCounter.textContent = `Slaid ${index + 1} / ${pd_slides.length}`;
+                pd_prevBtn.disabled = index === 0;
+                pd_nextBtn.disabled = index === pd_slides.length - 1;
+            }
+
+            function pd_toggleFullScreen() {
+                if (!document.fullscreenElement) {
+                    container.requestFullscreen().catch(err => {
+                        alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                    });
+                } else {
+                    document.exitFullscreen();
+                }
+            }
+
+            pd_nextBtn.addEventListener('click', () => {
+                if (pd_currentSlide < pd_slides.length - 1) { pd_currentSlide++; pd_showSlide(pd_currentSlide); }
+            });
+            pd_prevBtn.addEventListener('click', () => {
+                if (pd_currentSlide > 0) { pd_currentSlide--; pd_showSlide(pd_currentSlide); }
+            });
+            document.addEventListener('keydown', (event) => {
+                if (document.getElementById('pengenalan-diri-page').classList.contains('active')) {
+                    if (event.key === 'ArrowRight' && !pd_nextBtn.disabled) pd_nextBtn.click();
+                    else if (event.key === 'ArrowLeft' && !pd_prevBtn.disabled) pd_prevBtn.click();
+                    else if (event.key.toLowerCase() === 'f') pd_toggleFullScreen();
+                }
+            });
+            pd_showSlide(pd_currentSlide);
+        };
+
+        // Tool 3: Slaid Menulis Karangan (Year 7)
+        window.initTools['karangan-hari-keluarga-page'] = () => {
+            const container = document.getElementById('karangan-hari-keluarga-page');
+            container.innerHTML = `<div class="tool-container"><div class="flex-grow relative flex items-center justify-center bg-gray-900" id="khk-content"></div><div class="flex-shrink-0 bg-gray-900 p-2 text-center"><button data-target="year7-page" class="bg-gray-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-600">Kembali ke Indeks</button></div></div>`;
+            const toolContent = container.querySelector('#khk-content');
+            toolContent.innerHTML = `
+                 <style>
+                    #khk-container { font-family: 'Poppins', sans-serif; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+                    #khk-container .presentation-container { width: 95vw; max-width: 1440px; aspect-ratio: 16 / 9; display: flex; flex-direction: column; background: white; border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); overflow: hidden; }
+                    #khk-container .slide-content { animation: fadeIn 0.7s ease-in-out; position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+                    #khk-container .bg-geometric { background-color: #f8fafc; background-image: linear-gradient(135deg, #f1f5f9 25%, transparent 25%), linear-gradient(225deg, #f1f5f9 25%, transparent 25%), linear-gradient(45deg, #f1f5f9 25%, transparent 25%), linear-gradient(315deg, #f1f5f9 25%, #f8fafc 25%); background-size: 40px 40px; background-position: 0 0, 20px 20px, 20px 20px, 0 0; }
+                    #khk-container .bg-subtle-waves { background-color: #f0f9ff; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23bae6fd' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+                </style>
+                <div id="khk-container">
+                    <div class="presentation-container">
+                        <div id="khk-presentation-view" class="flex-grow p-8 md:p-16 flex items-center justify-center overflow-y-auto transition-colors duration-500 relative"></div>
+                        <div class="bg-gray-100 border-t-2 border-gray-200 px-8 py-4 flex items-center justify-between flex-shrink-0">
+                            <button id="khk-prev-btn" class="px-6 py-3 bg-gray-300 text-gray-800 text-lg font-semibold rounded-lg shadow-md hover:bg-gray-400 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed">Sebelum</button>
+                            <div id="khk-slide-counter" class="text-lg font-bold text-gray-600"></div>
+                            <button id="khk-next-btn" class="px-6 py-3 bg-indigo-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed">Seterusnya</button>
+                        </div>
+                    </div>
+                </div>`;
+            
+            const khk_slides = [
+                { title: "Topik Utama", content: `<div class="w-full text-center"><h2 class="text-6xl font-bold text-gray-800 mb-4">Menulis Karangan Pengalaman</h2><p class="text-4xl text-indigo-600 font-semibold">Topik: Hari Keluarga</p><div class="mt-8 bg-indigo-100 p-4 rounded-lg max-w-2xl mx-auto"><h3 class="text-2xl font-bold text-indigo-800">Aktiviti Do Now 🧠</h3><p class="text-xl text-indigo-700 mt-2">Senaraikan <strong>tiga aktiviti</strong> yang biasa diadakan semasa hari keluarga.</p></div></div>` },
+                { title: "Objektif Pembelajaran", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800 mb-8">Objektif Kita Hari Ini</h2><div class="text-left max-w-4xl mx-auto text-2xl space-y-3"><div><span class="bg-blue-500 text-white font-semibold rounded-lg px-3 py-1 mr-2">1. Merancang</span> Belajar merangka isi karangan menggunakan peta minda.</div><div><span class="bg-green-500 text-white font-semibold rounded-lg px-3 py-1 mr-2">2. Menulis</span> Menguasai teknik penulisan pendahuluan, isi, dan penutup yang berkesan.</div><div><span class="bg-yellow-500 text-white font-semibold rounded-lg px-3 py-1 mr-2">3. Memperkaya</span> Menggunakan kosa kata dan penanda wacana yang menarik.</div></div></div>` },
+                { title: "Apa Itu Karangan Pengalaman?", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Apa Itu Karangan Pengalaman?</h2><p class="mt-4 text-2xl text-gray-600 max-w-3xl mx-auto">Karangan jenis ini menceritakan semula <strong>peristiwa yang pernah kita alami</strong>. Tujuannya adalah untuk berkongsi cerita dan perasaan dengan pembaca.</p><div class="mt-6 bg-gray-100 p-4 rounded-lg text-2xl font-semibold">Fokus utama: Penceritaan yang jelas dan deskripsi yang hidup.</div></div>` },
+                { title: "Langkah 1: Merancang Isi", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Langkah 1: Merancang Isi 🗺️</h2><p class="mt-4 text-2xl text-gray-600 max-w-3xl mx-auto">Sebelum menulis, kita perlu merangka isi penting. Cara terbaik ialah menggunakan <strong>peta minda</strong>.</p><p class="mt-4 text-2xl text-gray-600 max-w-3xl mx-auto">Ini membantu karangan kita lebih <strong>tersusun dan tidak terpesong</strong> daripada tajuk.</p></div>` },
+                { title: "Contoh Peta Minda", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Contoh Peta Minda: Hari Keluarga</h2><div class="mt-6 bg-blue-50 p-6 rounded-lg max-w-4xl mx-auto text-left text-xl"><div class="text-center font-bold text-3xl mb-4">HARI KELUARGA</div><ul class="list-disc list-inside space-y-2"><li><strong>Pendahuluan:</strong> Tarikh, tempat, tujuan diadakan (merapatkan silaturahim).</li><li><strong>Isi 1:</strong> Aktiviti sukaneka - lari dalam guni, tarik tali - suasana meriah, gelak ketawa.</li><li><strong>Isi 2:</strong> Jamuan makan - pelbagai juadah - makan sambil berbual mesra.</li><li><strong>Isi 3:</strong> Penyampaian hadiah - pemenang sukaneka, cabutan bertuah - perasaan gembira.</li><li><strong>Penutup:</strong> Perasaan gembira, kenangan manis, harapan agar diadakan lagi.</li></ul></div></div>` },
+                { title: "Kosa Kata Menarik", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Perkaya Kosa Kata Anda! 📚</h2><p class="mt-4 text-2xl text-gray-600">Gunakan perkataan ini untuk menjadikan karangan anda lebih 'power'!</p><div class="mt-6 grid grid-cols-3 gap-4 max-w-4xl mx-auto text-2xl"><div class="bg-yellow-100 p-4 rounded-lg">meriah</div><div class="bg-yellow-100 p-4 rounded-lg">riang-ria</div><div class="bg-yellow-100 p-4 rounded-lg">silaturahim</div><div class="bg-yellow-100 p-4 rounded-lg">kenangan manis</div><div class="bg-yellow-100 p-4 rounded-lg">juadah lazat</div><div class="bg-yellow-100 p-4 rounded-lg">gemuruh</div></div></div>` },
+                { title: "Teknik Menulis Pendahuluan", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Teknik Menulis Pendahuluan ✍️</h2><p class="mt-4 text-2xl text-gray-600 max-w-3xl mx-auto">Pendahuluan yang baik dapat menarik minat pembaca. Pastikan ada:</p><ul class="mt-4 text-2xl list-disc list-inside max-w-lg mx-auto"><li>Bila & Di Mana? (Tarikh & Tempat)</li><li>Apa? (Nama Program)</li><li>Mengapa? (Tujuan)</li></ul></div>` },
+                { title: "Contoh Pendahuluan Cemerlang", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Contoh Pendahuluan Cemerlang</h2><div class="mt-6 text-left bg-gray-100 p-8 rounded-lg max-w-3xl mx-auto text-2xl leading-relaxed"><p>Pada hari Ahad yang lalu, keluarga saya telah mengadakan sambutan Hari Keluarga yang sungguh <strong>meriah</strong>. Program tahunan ini diadakan di Pantai Port Dickson bertujuan untuk mengeratkan lagi <strong>silaturahim</strong> antara kami sekeluarga. Seawal pagi lagi, kami telah berkumpul dengan perasaan yang sangat teruja.</p></div></div>` },
+                { title: "Teknik Menulis Perenggan Isi", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Struktur Perenggan Isi (AT+AH+AC+AP)</h2><div class="mt-6 text-left max-w-3xl mx-auto text-2xl space-y-2"><p><strong class="text-blue-600">Ayat Topik:</strong> Idea utama perenggan.</p><p><strong class="text-green-600">Ayat Huraian:</strong> Jelaskan idea utama.</p><p><strong class="text-purple-600">Ayat Contoh:</strong> Beri contoh spesifik.</p><p><strong class="text-red-600">Ayat Penegas:</strong> Rumusan kecil perenggan.</p></div></div>` },
+                { title: "Contoh Perenggan Isi 1", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Contoh Isi: Aktiviti Sukaneka</h2><div class="mt-6 text-left bg-gray-100 p-8 rounded-lg max-w-3xl mx-auto text-xl leading-relaxed"><p><strong class="text-blue-600">(AT)</strong> Pelbagai aktiviti sukaneka yang menarik telah diadakan untuk memeriahkan lagi suasana. <strong class="text-green-600">(AH)</strong> Acara ini melibatkan semua peringkat umur, daripada kanak-kanak hinggalah orang dewasa. <strong class="text-purple-600">(AC)</strong> Antara acara yang paling mendapat sambutan ialah lari dalam guni dan tarik tali yang mencuit hati. <strong class="text-red-600">(AP)</strong> Riuh-rendah suara kami bersorak memberikan sokongan kepada pasukan masing-masing.</p></div></div>` },
+                { title: "Contoh Perenggan Isi 2", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Contoh Isi: Jamuan Makan</h2><div class="mt-6 text-left bg-gray-100 p-8 rounded-lg max-w-3xl mx-auto text-xl leading-relaxed"><p><strong class="text-blue-600">(AT)</strong> Selepas penat bersukan, kami menikmati jamuan makan tengah hari. <strong class="text-green-600">(AH)</strong> Ibu saudara saya telah menyediakan pelbagai juadah yang lazat seperti nasi lemak, ayam goreng, dan kuih-muih tradisional. <strong class="text-purple-600">(AC)</strong> Kami makan dengan penuh berselera sambil berbual-bual dan berkongsi cerita. <strong class="text-red-600">(AP)</strong> Momen ini sangat berharga kerana inilah masanya kami dapat berkumpul bersama.</p></div></div>` },
+                { title: "Latihan Interaktif: Susun Ayat", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Latihan: Susun Semula Ayat</h2><p class="mt-4 text-2xl text-gray-600">Susun ayat-ayat di bawah menjadi satu perenggan yang lengkap.</p><div class="mt-6 text-left bg-yellow-50 p-6 rounded-lg max-w-3xl mx-auto text-xl space-y-2"><div>A. Acara kemuncak hari keluarga kami ialah majlis penyampaian hadiah.</div><div>B. Wajah para pemenang kelihatan sangat gembira dan bangga.</div><div>C. Hadiah diberikan kepada para pemenang acara sukaneka dan cabutan bertuah.</div><div>D. Majlis ini diadakan untuk menghargai penyertaan semua ahli keluarga.</div></div><p class="mt-4 text-xl font-bold">(Jawapan: A, D, C, B)</p></div>` },
+                { title: "Gunakan Penanda Wacana", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Gunakan Penanda Wacana</h2><p class="mt-4 text-2xl text-gray-600 max-w-3xl mx-auto">Ia berfungsi seperti gam untuk menyambungkan perenggan agar karangan lancar.</p><div class="mt-6 grid grid-cols-3 gap-4 max-w-4xl mx-auto text-2xl"><div class="bg-gray-100 p-4 rounded-lg">Selain itu,</div><div class="bg-gray-100 p-4 rounded-lg">Seterusnya,</div><div class="bg-gray-100 p-4 rounded-lg">Di samping itu,</div><div class="bg-gray-100 p-4 rounded-lg">Tambahan pula,</div><div class="bg-gray-100 p-4 rounded-lg">Akhir sekali,</div><div class="bg-gray-100 p-4 rounded-lg">Kesimpulannya,</div></div></div>` },
+                { title: "Huraikan Perasaan & Suasana", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Tunjuk, Jangan Hanya Beritahu!</h2><p class="mt-4 text-2xl text-gray-600 max-w-3xl mx-auto">Daripada hanya menulis "Saya gembira", huraikan kegembiraan itu.</p><div class="mt-6 grid grid-cols-2 gap-8 max-w-4xl mx-auto text-2xl"><div class="text-left bg-red-50 p-4 rounded-lg"><strong>Biasa:</strong><br>Semua orang seronok.</div><div class="text-left bg-green-50 p-4 rounded-lg"><strong>Lanjutan:</strong><br>Suasana riuh-rendah dengan gelak tawa dan sorakan. Wajah setiap ahli keluarga berseri-seri dengan senyuman.</div></div></div>` },
+                { title: "Teknik Menulis Penutup", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Teknik Menulis Penutup 🏁</h2><p class="mt-4 text-2xl text-gray-600 max-w-3xl mx-auto">Penutup yang mantap meninggalkan kesan kepada pembaca. Masukkan elemen ini:</p><ul class="mt-4 text-2xl list-disc list-inside max-w-lg mx-auto"><li>Rumusan keseluruhan</li><li>Perasaan anda</li><li>Harapan pada masa akan datang</li></ul></div>` },
+                { title: "Contoh Penutup Yang Berkesan", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Contoh Penutup Yang Berkesan</h2><div class="mt-6 text-left bg-gray-100 p-8 rounded-lg max-w-3xl mx-auto text-2xl leading-relaxed"><p>Kesimpulannya, program hari keluarga pada tahun ini sangat berjaya. Saya berasa amat gembira kerana dapat meluangkan masa bersama keluarga tercinta. Pengalaman ini akan menjadi <strong>kenangan manis</strong> yang tidak akan saya lupakan. Saya berharap agar program seperti ini dapat diadakan lagi pada masa akan datang.</p></div></div>` },
+                { title: "Semak Semula Karangan Anda", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Langkah Terakhir: Penyuntingan 🔍</h2><p class="mt-4 text-2xl text-gray-600">Baca semula karangan anda dan semak perkara berikut:</p><div class="mt-6 text-left max-w-2xl mx-auto text-2xl space-y-2"><p>✅ <strong>Ejaan:</strong> Tiada kesalahan ejaan.</p><p>✅ <strong>Tatabahasa:</strong> Struktur ayat betul.</p><p>✅ <strong>Tanda Baca:</strong> Penggunaan noktah, koma yang betul.</p><p>✅ <strong>Kosa Kata:</strong> Penggunaan perkataan yang menarik.</p></div></div>` },
+                { title: "Tugasan Menulis Karangan", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Tugasan Anda ✍️</h2><p class="mt-4 text-3xl text-gray-600 max-w-3xl mx-auto">Tulis sebuah karangan lengkap bertajuk <strong>"Pengalaman Menyertai Hari Keluarga di Sekolah Saya"</strong>.</p><p class="mt-4 text-2xl text-gray-600">Gunakan semua teknik yang telah dipelajari. Panjang karangan anda hendaklah tidak kurang daripada 180 patah perkataan.</p></div>` },
+                { title: "Senarai Semak Kejayaan", content: `<div class="w-full text-center"><h2 class="text-5xl font-bold text-gray-800">Senarai Semak Kejayaan ✅</h2><p class="mt-4 text-2xl text-gray-600">Pastikan karangan anda mempunyai:</p><div class="mt-6 text-left max-w-2xl mx-auto text-2xl space-y-2"><p>☐ Pendahuluan yang menarik.</p><p>☐ Sekurang-kurangnya 3 perenggan isi yang mantap.</p><p>☐ Penggunaan kosa kata menarik & penanda wacana.</p><p>☐ Huraian perasaan dan suasana.</p><p>☐ Penutup yang berkesan.</p></div></div>` },
+                { title: "Sesi Soal Jawab", content: `<div class="w-full text-center"><h2 class="text-6xl font-bold text-gray-800">Sesi Soal Jawab</h2><p class="mt-6 text-4xl text-gray-600">Ada sebarang pertanyaan?</p><p class="mt-4 text-7xl">🙋‍♀️🙋‍♂️</p></div>` }
+            ];
+            let khk_currentSlide = 0;
+            const khk_presentationView = toolContent.querySelector('#khk-presentation-view');
+            const khk_prevBtn = toolContent.querySelector('#khk-prev-btn');
+            const khk_nextBtn = toolContent.querySelector('#khk-next-btn');
+            const khk_slideCounter = toolContent.querySelector('#khk-slide-counter');
+
+            function khk_showSlide(index) {
+                const slide = khk_slides[index];
+                const backgroundClasses = ['bg-geometric', 'bg-subtle-waves'];
+                khk_presentationView.classList.remove(...backgroundClasses);
+                khk_presentationView.classList.add(backgroundClasses[index % 2]);
+                khk_presentationView.innerHTML = `<div class="slide-content">${slide.content}</div>`;
+                khk_slideCounter.textContent = `Slaid ${index + 1} / ${khk_slides.length}`;
+                khk_prevBtn.disabled = index === 0;
+                khk_nextBtn.disabled = index === khk_slides.length - 1;
+            }
+
+            function khk_toggleFullScreen() {
+                if (!document.fullscreenElement) { container.requestFullscreen(); } 
+                else { if (document.exitFullscreen) document.exitFullscreen(); }
+            }
+
+            khk_nextBtn.addEventListener('click', () => {
+                if (khk_currentSlide < khk_slides.length - 1) { khk_currentSlide++; khk_showSlide(khk_currentSlide); }
+            });
+            khk_prevBtn.addEventListener('click', () => {
+                if (khk_currentSlide > 0) { khk_currentSlide--; khk_showSlide(khk_currentSlide); }
+            });
+            
+            document.addEventListener('keydown', (event) => {
+                if (container.classList.contains('active')) {
+                    if (event.key === 'ArrowRight' && !khk_nextBtn.disabled) khk_nextBtn.click();
+                    else if (event.key === 'ArrowLeft' && !khk_prevBtn.disabled) khk_prevBtn.click();
+                    else if (event.key.toLowerCase() === 'f') khk_toggleFullScreen();
+                }
+            });
+
+            khk_showSlide(khk_currentSlide);
+        };
+        
+        // --- TOOLS FOR YEAR 8 & 9 ---
+        window.initTools['cuaca-slides-page'] = () => {
+             const container = document.getElementById('cuaca-slides-page');
+            container.innerHTML = `<div class="tool-container flex items-center justify-center bg-sky-50"><div id="cuaca-content" class="w-full h-full"></div></div>`;
+            const toolContent = container.querySelector('#cuaca-content');
+            toolContent.innerHTML = `
+                <button data-target="year8-page" class="absolute top-4 left-4 z-50 bg-gray-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-600">Kembali</button>
+                <div id="cuaca-slide-container" class="w-full h-full relative overflow-hidden bg-white"></div>
+            `;
+            const slideContainer = toolContent.querySelector('#cuaca-slide-container');
+            const slidesData = [
+                { type: 'title', title: 'Pelajaran Interaktif: CUACA', subtitle: 'Untuk Pelajar Asas Bahasa Melayu' },
+                 { type: 'standard', title: 'Kosa Kata Asas: Cerah', content: '<span class="text-9xl">☀️</span><p class="text-4xl mt-4">Hari ini cuaca cerah.</p>', objective: 'Mengenal perkataan "cerah"' },
+                 { type: 'standard', title: 'Kosa Kata Asas: Hujan', content: '<span class="text-9xl">🌧️</span><p class="text-4xl mt-4">Jangan lupa bawa payung, hari ini mungkin hujan.</p>', objective: 'Mengenal perkataan "hujan"' },
+                 { type: 'title', title: 'Sesi Tamat', subtitle: 'Syabas!' }
+            ];
+            let currentCuacaSlide = 0;
+            const renderCuacaSlide = () => {
+                const slide = slidesData[currentCuacaSlide];
+                let html = `<div class="w-full h-full flex flex-col justify-center items-center p-12 text-center fade">`;
+                if(slide.type === 'title') {
+                    html += `<h1 class="text-7xl font-black text-sky-600">${slide.title}</h1><p class="text-3xl text-gray-600 mt-4">${slide.subtitle}</p>`;
+                } else {
+                    html += `<div class="absolute top-5 right-5 bg-white/70 text-sky-800 text-lg px-4 py-2 rounded-full"><em>${slide.objective}</em></div>`;
+                    html += `<h2 class="text-6xl font-bold text-sky-700 mb-8">${slide.title}</h2>`;
+                    html += slide.content;
+                }
+                html += `</div>`;
+                html += `<div class="absolute bottom-5 left-5 text-xl font-bold">${currentCuacaSlide + 1} / ${slidesData.length}</div>`;
+                 slideContainer.innerHTML = html;
+            };
+            const navigateCuaca = (dir) => {
+                currentCuacaSlide += dir;
+                if(currentCuacaSlide < 0) currentCuacaSlide = slidesData.length - 1;
+                if(currentCuacaSlide >= slidesData.length) currentCuacaSlide = 0;
+                renderCuacaSlide();
+            };
+            
+            slideContainer.insertAdjacentHTML('afterend', `<button id="cuaca-prev" class="absolute left-5 top-1/2 -translate-y-1/2 text-5xl opacity-50 hover:opacity-100">❮</button><button id="cuaca-next" class="absolute right-5 top-1/2 -translate-y-1/2 text-5xl opacity-50 hover:opacity-100">❯</button>`);
+            toolContent.querySelector('#cuaca-prev').addEventListener('click', () => navigateCuaca(-1));
+            toolContent.querySelector('#cuaca-next').addEventListener('click', () => navigateCuaca(1));
+            
+            renderCuacaSlide();
+        };
+        window.initTools['ukuran-quiz-page'] = () => {
+             const container = document.getElementById('ukuran-quiz-page');
+            container.innerHTML = `<div class="tool-container flex items-center justify-center bg-amber-50" id="ukuran-content"></div>`;
+            const toolContent = container.querySelector('#ukuran-content');
+            toolContent.innerHTML = `
+                 <div class="text-center">
+                    <h1 class="text-4xl font-bold">Kuiz Individu: Ukuran & Bahan</h1>
+                    <p class="mt-4">Kuiz ini akan dimuatkan di sini.</p>
+                     <button data-target="year8-page" class="mt-8 bg-gray-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-600">Kembali ke Indeks</button>
+                </div>
+            `;
+        };
+        window.initTools['multiplayer-quiz-page'] = () => {
+             const container = document.getElementById('multiplayer-quiz-page');
+            container.innerHTML = `<div class="tool-container flex items-center justify-center bg-purple-50" id="multi-content"></div>`;
+            const toolContent = container.querySelector('#multi-content');
+            toolContent.innerHTML = `
+                 <div class="text-center">
+                    <h1 class="text-4xl font-bold">Permainan Kuiz Multiplayer</h1>
+                     <p class="mt-4">Permainan ini akan dimuatkan di sini.</p>
+                     <button data-target="year8-page" class="mt-8 bg-gray-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-600">Kembali ke Indeks</button>
+                </div>`;
+        };
+        window.initTools['whiteboard-page'] = () => {
+             const container = document.getElementById('whiteboard-page');
+            container.innerHTML = `<div class="tool-container flex items-center justify-center bg-green-50" id="whiteboard-content"></div>`;
+            const toolContent = container.querySelector('#whiteboard-content');
+            toolContent.innerHTML = `
+                 <div class="text-center">
+                    <h1 class="text-4xl font-bold">Papan Perbincangan</h1>
+                     <p class="mt-4">Papan perbincangan akan dimuatkan di sini.</p>
+                    <button data-target="year8-page" class="mt-8 bg-gray-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-600">Kembali ke Indeks</button>
+                </div>`;
+        };
+    </script>
+</body>
+</html>
+
+
